@@ -1,0 +1,499 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.container {
+    
+    max-width: 80%;
+    
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background: #ffffff; /* White background */
+    animation: fadeIn 1s ease;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+ h1 {
+    color: #4CAF50;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    animation: slideDown 1s ease;
+} 
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative; /* Added to position suggestions relative to this section */
+}
+
+#ingredient-input, #cuisine-filter {
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+#ingredient-input:focus, #cuisine-filter:focus {
+    border-color: #388E3C;
+}
+
+.ingredient-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ingredient-item {
+    background-color: #e0ffe0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.ingredient-item:hover {
+    background-color: #b9ffb9;
+    transform: scale(1.1);
+}
+
+ .recipe-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; 
+}  
+
+
+.recipe-item img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.recipe-item img:hover {
+    transform: scale(1.02);
+}
+
+.card-back {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.15rem;
+    color: #444;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+
+/* Add to Cart Button - Placed at bottom */
+.add-to-cart {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+
+/* Shopping Cart Heading Animation */
+
+#shopping-cart-title {
+    font-size: 24px;
+    color:  #34a853;; /* Google-style green */
+    background-color: #f0f8f59d;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 40px; 
+    text-align: center;
+    /* animation: pulse 2s infinite ease-in-out, slideIn 1.5s ease-out; */
+    font-weight: bold;
+}
+
+/* Pulse animation
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+ Slide in from left 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} */
+
+
+/* Cart items*/
+ #cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f8f5;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    animation: fadeInCart 0.5s ease-out, popIn 0.3s ease-out;
+}
+
+ #cart-items li a {
+    color: #2d8659;
+    text-decoration: none;
+} 
+
+#cart-items li a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInCart {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+ 
+
+/* Button Style for Enter Button */
+#enter-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 10px; /* Space between input and button */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Added transform transition */
+}
+
+#enter-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Animation on button press */
+#enter-button:active {
+    transform: scale(1.25); /* Scale down on press */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #ingredient-input {
+        width: calc(100% - 120px); /* Adjust for button width */
+        margin-bottom: 10px; /* Add some space below on small screens */
+    }
+}
+
+#suggestions-list {
+
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    margin-top: 50px;
+    margin-right: 250px;
+    width: auto;
+    background-color: #f0f8f59d;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    transition: opacity 0.2s ease;
+    
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s, padding-left 0.2s;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f3f4;
+    padding-left: 20px;
+}
+
+/* Style for the highlighted (active) suggestion */
+.suggestion-item.active {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.recipe-item {
+    
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    animation: recipeFadeIn 0.5s ease;
+    perspective: 1000px; /* Adds perspective for 3D effect */
+
+   
+}
+
+@keyframes recipeFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.recipe-item:hover {
+
+    transform: scale(1.05);
+    border-color: #4CAF50;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.card {
+ 
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform 0.6s ease;
+    cursor: pointer;
+    margin-right: 50%;
+  
+
+}
+.card.flipped {
+    transform: rotateY(180deg);
+}
+ 
+.recipe-card {
+
+
+    width: 100%;
+    height: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform 0.6s ease;
+
+    cursor: pointer;
+    
+    
+}
+
+.recipe-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2; 
+    justify-content: center;
+}
+
+.card-front h3 {
+
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    text-align: center;
+ }
+ 
+
+
+
+.card-back {
+    
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+   
+}
+
+.recipe-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Recipe card details */
+/* added */
+   h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 300px;
+    margin: 20px auto;
+    transition: opacity 0.3s ease;
+}
+
+#cart-items li {
+    margin: 5px 0;
+}
+
+#clear-cart {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+#clear-cart:hover {
+
+    background-color: #d32f2f;
+}
+/*  */
+.progress-bar-container { 
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 9px;
+    margin: 15px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 20px;
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Adding animation for a pulse effect */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5), 0 0 15px rgba(102, 187, 106, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.7), 0 0 25px rgba(102, 187, 106, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5), 0 0 15px rgba(102, 187, 106, 0.5);
+    }
+}
+
+.progress-bar {
+    animation: pulse 1s infinite ease-in-out;
+}
